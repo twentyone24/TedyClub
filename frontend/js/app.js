@@ -286,7 +286,7 @@ function setTotalPrice() {
     return;
   }
   const txn=(info.deploymentConfig.mintPrice)
-  const totalPriceWei = BigInt(txn) * BigInt(mintInputValue);
+  const totalPriceWei = (txn) * (mintInputValue);
   
   let priceType = '';
   if(chain === 'rinkeby' || chain === 'ethereum') {
@@ -307,7 +307,7 @@ async function mint() {
   mintButton.innerHTML = spinner;
 
   const amount = parseInt(document.getElementById("mintInput").value);
-  const value = BigInt(info.deploymentConfig.mintPrice) * BigInt(amount);
+  const value =(info.deploymentConfig.mintPrice) * (amount);
   const publicMintActive = await contract.methods.mintingActive().call();
   const presaleMintActive = await contract.methods.presaleActive().call();
 
