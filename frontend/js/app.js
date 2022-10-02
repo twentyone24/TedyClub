@@ -228,7 +228,7 @@ async function loadInfo() {
   } else if (chain === 'polygon') {
     priceType = 'MATIC';
   }
-  const price = web3.utils.fromWei(info.deploymentConfig.mintPrice, 'ether');
+  const price = web3.utils.fromWei(info.deploymentConfig.mintPrice, 'MATIC');
   const pricePerMint = document.getElementById("pricePerMint");
   const maxPerMint = document.getElementById("maxPerMint");
   const totalSupply = document.getElementById("totalSupply");
@@ -279,15 +279,14 @@ function setTotalPrice() {
   const mintInputValue = parseInt(mintInput.value);
   const totalPrice = document.getElementById("totalPrice");
   const mintButton = document.getElementById("mintButton");
-  if(mintInputValue < 1 || mintInputValue > info.deploymentConfig.tokensPerMint) {
+  if(mintInputValue < 1 || mintInputValue > 5) {
     totalPrice.innerText = 'INVALID QUANTITY';
     mintButton.disabled = true;
     mintInput.disabled = true;
     return;
   }
-  const txn=BigInt(info.deploymentConfig.mintPrice);
-  const mIV=BigInt(mintInputValue);
-  const totalPriceWei = txn *mIV ;
+ 
+  const totalPriceWei = BigInt(info.deploymentConfig.mintPrice)*BigInt(mintInputValue) ;
   
   let priceType = '';
   if(chain === 'rinkeby' || chain === 'ethereum') {
