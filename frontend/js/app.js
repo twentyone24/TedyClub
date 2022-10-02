@@ -275,7 +275,7 @@ async function loadInfo() {
 }
 
 function setTotalPrice() {
-  const mintInput = 1;//document.getElementById("mintInput");
+  const mintInput = document.getElementById("mintInput");
   const mintInputValue = parseInt(mintInput.value);
   const totalPrice = document.getElementById("totalPrice");
   const mintButton = document.getElementById("mintButton");
@@ -286,7 +286,7 @@ function setTotalPrice() {
     return;
   }
  
-  const totalPriceWei = BigInt(1)*BigInt(mintInputValue) ;
+  const totalPriceWei = BigInt(1)*BigInt(5) ;
   
   let priceType = '';
   if(chain === 'rinkeby' || chain === 'ethereum') {
