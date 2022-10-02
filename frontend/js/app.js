@@ -275,8 +275,8 @@ async function loadInfo() {
 }
 
 function setTotalPrice() {
-  const mintInput = document.getElementById("mintInput");
-  const mintInputValue = parseInt(mintInput.value);
+  const mintInput = document.getElementById("mintInput").innerHTML;
+  const mintInputValue = parseInt(mintInput.valueOf);
   const totalPrice = document.getElementById("totalPrice");
   const mintButton = document.getElementById("mintButton");
   if(mintInputValue < 1 || mintInputValue > 5) {
@@ -286,7 +286,7 @@ function setTotalPrice() {
     return;
   }
  
-  const totalPriceWei = BigInt(1)*BigInt(5) ;
+  const totalPriceWei = BigInt(info.deploymentConfig.mintPrice)*BigInt(mintInputValue) ;
   
   let priceType = '';
   if(chain === 'rinkeby' || chain === 'ethereum') {
