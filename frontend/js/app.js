@@ -275,8 +275,8 @@ async function loadInfo() {
 }
 
 function setTotalPrice() {
-  const mintInput = document.getElementById("mintInput").innerHTML;
-  const mintInputValue = parseInt(mintInput.valueOf);
+  const mintInput = document.getElementById("mintInput");
+  const mintInputValue = parseInt(mintInput.value);
   const totalPrice = document.getElementById("totalPrice");
   const mintButton = document.getElementById("mintButton");
   if(mintInputValue < 1 || mintInputValue > 5) {
