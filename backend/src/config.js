@@ -61,8 +61,8 @@ const TOKENS_PER_MINT = 5; // maximum number of NFTs a user can mint in a single
 const PUBLIC_MINT_START_DATE = "2022-09-29T11:30:48+00:00"; // This is required. Eg: 2022-02-08T11:30:48+00:00
 
 // OPTIONAL CONTRACT DETAILS THAT CAN BE UPDATED LATER.
-const PRESALE_MINT_START_DATE = "2022-09-30T11:30:48+00:00"; // Optional. Eg: 2022-02-08T11:30:48+00:00
-const ROYALTY_SHARE = "500"; // Percentage of the token price that goes to the royalty address. 100 bps = 1%
+const PRESALE_MINT_START_DATE = "2022-10-03T11:30:48+00:00"; // Optional. Eg: 2022-02-08T11:30:48+00:00
+const ROYALTY_SHARE = "1000"; // Percentage of the token price that goes to the royalty address. 100 bps = 1%
 const ROYALTY_ADDRESS = "0xA60388CbaB609a1442f38e035aa2904E13543055"; // Address that will receive the royalty
 const BASE_URI = null; // only update if you want to manually set the base uri
 const PREREVEAL_TOKEN_URI = null; // only update if you want to manually set the prereveal token uri
@@ -93,7 +93,7 @@ try {
 
 const solanaMetadata = {
   symbol: "YC",
-  seller_fee_basis_points: 500, // Define how much % you want from secondary market sales 1000 = 10%
+  seller_fee_basis_points: 1000, // Define how much % you want from secondary market sales 1000 = 10%
   external_url: "",
   creators: [
     {

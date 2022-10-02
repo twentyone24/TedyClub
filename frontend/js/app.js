@@ -286,7 +286,7 @@ function setTotalPrice() {
     return;
   }
   const txn=(info.deploymentConfig.mintPrice)
-  const totalPriceWei = BigInt(txn) * BigInt(mintInputValue);
+  const totalPriceWei = BigInt((txn) * (mintInputValue));
   
   let priceType = '';
   if(chain === 'rinkeby' || chain === 'ethereum') {
@@ -312,13 +312,13 @@ async function mint() {
   const presaleMintActive = await contract.methods.presaleActive().call();
 
   if (publicMintActive) {
-    // PUBLIC MINT
+    
     try {
       const mintTransaction = await contract.methods
         .mint(amount)
         .send({ from: window.address, value: value.toString() });
       if(mintTransaction) {
-        if(chain === 'rinkeby') {
+        if(chain === 'polygon') {
           const url = `https://rinkeby.etherscan.io/tx/${mintTransaction.transactionHash}`;
           const mintedContainer = document.querySelector('.minted-container');
           const countdownContainer = document.querySelector('.countdown');
@@ -345,7 +345,7 @@ async function mint() {
       console.log(e);
     }
   } else if (presaleMintActive) {
-    // PRE-SALE MINTING
+   
     try {
       const merkleData = await fetch(
         `/.netlify/functions/merkleProof/?wallet=${window.address}&chain=${chain}&contract=${contractAddress}`
@@ -355,7 +355,7 @@ async function mint() {
         .presaleMint(amount, merkleJson)
         .send({ from: window.address, value: value.toString() });
       if(presaleMintTransaction) {
-        if(chain === 'rinkeby') {
+        if(chain === 'polygon') {
           const url = `https://rinkeby.etherscan.io/tx/${presaleMintTransaction.transactionHash}`;
           const mintedContainer = document.querySelector('.minted-container');
           const countdownContainer = document.querySelector('.countdown');
@@ -379,7 +379,7 @@ async function mint() {
       mintButton.innerText = button_presale_mint_whitelisted;
       mintButton.disabled = false;
 
-      // console.log(e);
+      
     }
   }
 }
