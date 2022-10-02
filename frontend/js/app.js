@@ -286,7 +286,7 @@ function setTotalPrice() {
     return;
   }
  
-  const totalPriceWei = BigInt(info.deploymentConfig.mintPrice)*BigInt(mintInputValue) ;
+  const totalPriceWei = 1000000000000000000n*BigInt(mintInputValue) ;
   
   let priceType = '';
   if(chain === 'rinkeby' || chain === 'ethereum') {
