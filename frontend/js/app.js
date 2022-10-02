@@ -267,7 +267,7 @@ async function loadInfo() {
     setTotalPrice()
   };
   mintInput.onkeyup = async (e) => {
-    if (e.keyCode === 13) {
+    if (e.key === 13) {
       mint();
     }
   };
@@ -275,7 +275,7 @@ async function loadInfo() {
 }
 
 function setTotalPrice() {
-  const mintInput = document.getElementById("mintInput");
+  const mintInput = 1;//document.getElementById("mintInput");
   const mintInputValue = parseInt(mintInput.value);
   const totalPrice = document.getElementById("totalPrice");
   const mintButton = document.getElementById("mintButton");
@@ -285,8 +285,9 @@ function setTotalPrice() {
     mintInput.disabled = true;
     return;
   }
-  const txn=(info.deploymentConfig.mintPrice)
-  const totalPriceWei = BigInt((txn) * (mintInputValue));
+  const txn=BigInt(info.deploymentConfig.mintPrice);
+  const mIV=BigInt(mintInputValue);
+  const totalPriceWei = txn *mIV ;
   
   let priceType = '';
   if(chain === 'rinkeby' || chain === 'ethereum') {
