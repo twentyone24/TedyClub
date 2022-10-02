@@ -61,4 +61,4 @@ function fetchWithRetry(url, options) {
   });
 }
 
-module.exports = { fetchNoRetry, fetchWithRetry };
+export default { fetchNoRetry, fetchWithRetry };
