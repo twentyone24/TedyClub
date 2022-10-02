@@ -154,7 +154,7 @@ const preview_gif = {
   imageName: "preview.gif",
 };
 
-module.exports = {
+export default {
   format,
   baseUri,
   description,
