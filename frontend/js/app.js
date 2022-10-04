@@ -276,17 +276,17 @@ async function loadInfo() {
 
 function setTotalPrice() {
   const mintInput = document.getElementById("mintInput");
-  const mintInputValue = parseInt(1);
+  const mintInputValue = parseInt(mintInput.value);;
   const totalPrice = document.getElementById("totalPrice");
   const mintButton = document.getElementById("mintButton");
-  if(mintInputValue < 1 || mintInputValue > 5) {
+  if(mintInputValue < 1 || mintInputValue > info.deploymentConfig.tokensPerMint) {
     totalPrice.innerText = 'INVALID QUANTITY';
     mintButton.disabled = true;
     mintInput.disabled = true;
     return;
   }
  
-  const totalPriceWei = 1000000000000000000n*BigInt(mintInputValue);
+  const totalPriceWei = BigInt(info.runtimeConfig.publicMintPrice) * BigInt(mintInputValue);
   
   let priceType = '';
   if(chain === 'rinkeby' || chain === 'ethereum') {
