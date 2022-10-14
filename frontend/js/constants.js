@@ -1,5 +1,5 @@
 const contractAddress = "0x4aBB344f39a3F506d61CACDEc662e3338FAD8e96"; // Replace with your own contract address
-const chain = 'polygon'; // rinkeby, polygon, or ethereum
+const chain = 'goerli'; // rinkeby, polygon, or ethereum
 
 const welcome_h1 = "Welcome to the Tedy NFT Project!!";
 const welcome_h2 = "Connect to MetaMask to Get Started";
@@ -18,5 +18,5 @@ const button_presale_coming_soon = "Get on the Whitelist";
 const button_presale_mint_whitelisted = "Mint Your Special NFT";
 const button_presale_mint_not_whitelisted = "Get on the Whitelist";
 const button_presale_already_minted = "Join The Community";
-const button_public_mint = "Mint Your NFT";
-const mint_failed = "Minting failed. 😢 Please try again.";
+const button_public_mint = "Mint Your own Tedy NFT";
+const mint_failed = "Minting failed, Please try again.";
