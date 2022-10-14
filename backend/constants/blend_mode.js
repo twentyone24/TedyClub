@@ -27,6 +27,6 @@ const MODE = {
   luminosity: "luminosity",
 };
 
-export default {
+module.exports= {
   MODE,
 };

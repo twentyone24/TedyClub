@@ -1,6 +1,6 @@
 const basePath = process.cwd();
-const fs = require("fs");
-const yesno = require('yesno');
+import { readFileSync, writeFileSync } from "fs";
+import yesno from 'yesno';
 
 const {
   baseUri,
@@ -10,7 +10,7 @@ const {
 
 (async () => {
   // read json data
-  let rawdata = fs.readFileSync(`${basePath}/build/json/_metadata.json`);
+  let rawdata = readFileSync(`${basePath}/build/json/_metadata.json`);
   let data = JSON.parse(rawdata);
 
   console.log("Info will be updated using the config.js data.");
@@ -23,13 +23,13 @@ const {
     if(updateDescription) item.description = description;
     if(updateBaseUri) item.image = `${baseUri}/${item.edition}.png`;
   
-    fs.writeFileSync(
+    writeFileSync(
       `${basePath}/build/json/${item.edition}.json`,
       JSON.stringify(item, null, 2)
     );
   });
 
-  fs.writeFileSync(
+  writeFileSync(
     `${basePath}/build/json/_metadata.json`,
     JSON.stringify(data, null, 2)
   );

@@ -4,6 +4,6 @@ const NETWORK = {
   
 };
 
-export default {
+module.exports = {
   NETWORK,
 };
