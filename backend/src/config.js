@@ -43,7 +43,7 @@ const extraMetadata = {
 // NFTPort Info
 
 // ** REQUIRED **
-const AUTH = "f9d415b7a0f040938294ec51e33f26bf"; // Set this in the .env file to prevent exposing your API key when pushing to Github
+const AUTH = "884dc7166e8b4c048fd44c3fca3576a1"; // Set this in the .env file to prevent exposing your API key when pushing to Github
 const LIMIT = 2; // Your API key rate limit
 const CHAIN = 'goerli'; // only rinkeby, polygon, or ethereum
 
